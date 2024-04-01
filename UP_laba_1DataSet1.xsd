@@ -70,7 +70,7 @@ SELECT ID_Pilot, NamePilot, SurnamePilot, AgePilot, SpaceShip_ID FROM PilotsOfSh
               <Mapping SourceColumn="SpaceShip_ID" DataSetColumn="SpaceShip_ID" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery3" Modifier="Public" Name="DeleteQuery3" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery3">
+              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery3" Modifier="Public" Name="DeleteQuery3" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery3">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[PilotsOfShip] WHERE ([ID_Pilot] = @Original_ID_Pilot) </CommandText>
@@ -80,7 +80,7 @@ SELECT ID_Pilot, NamePilot, SurnamePilot, AgePilot, SpaceShip_ID FROM PilotsOfSh
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery3" Modifier="Public" Name="InsertQuery3" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery3">
+              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery3" Modifier="Public" Name="InsertQuery3" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery3">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[PilotsOfShip] ([NamePilot], [SurnamePilot], [AgePilot], [SpaceShip_ID]) VALUES (@NamePilot, @SurnamePilot, @AgePilot, @SpaceShip_ID);
@@ -247,7 +247,7 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
               <Mapping SourceColumn="TypeShip_ID" DataSetColumn="TypeShip_ID" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery2" Modifier="Public" Name="DeleteQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery2">
+              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery2" Modifier="Public" Name="DeleteQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery2">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[SpaceShips] WHERE ([ID_SpaceShip] = @Original_ID_SpaceShip) 
@@ -258,7 +258,7 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery2" Modifier="Public" Name="InsertQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery2">
+              <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery2" Modifier="Public" Name="InsertQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery2">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[SpaceShips] ([NameShip], [AmountFlights], [TypeShip_ID]) VALUES (@NameShip, @AmountFlights, @TypeShip_ID);
@@ -274,9 +274,11 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
               <DbSource ConnectionRef="UP_laba_1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery2" Modifier="Public" Name="UpdateQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery2">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>UPDATE [dbo].[SpaceShips] SET [NameShip] = @NameShip WHERE ([ID_SpaceShip] = @Original_ID_SpaceShip) </CommandText>
+                    <CommandText>UPDATE [dbo].[SpaceShips] SET [NameShip] = @NameShip, [AmountFlights] = @AmountFlights, [TypeShip_ID] = @TypeShip_ID WHERE ([ID_SpaceShip] = @Original_ID_SpaceShip) </CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="NameShip" ColumnName="NameShip" DataSourceName="UP_laba_1.dbo.SpaceShips" DataTypeServer="varchar(70)" DbType="AnsiString" Direction="Input" ParameterName="@NameShip" Precision="0" ProviderType="VarChar" Scale="0" Size="70" SourceColumn="NameShip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AmountFlights" ColumnName="AmountFlights" DataSourceName="UP_laba_1.dbo.SpaceShips" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AmountFlights" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AmountFlights" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="TypeShip_ID" ColumnName="TypeShip_ID" DataSourceName="UP_laba_1.dbo.SpaceShips" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@TypeShip_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="TypeShip_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="Original_ID_SpaceShip" ColumnName="ID_SpaceShip" DataSourceName="UP_laba_1.dbo.SpaceShips" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_ID_SpaceShip" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_SpaceShip" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -362,8 +364,8 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__PilotsOfS__Space__5070F446" msdata:parent="SpaceShips" msdata:child="PilotsOfShip" msdata:parentkey="ID_SpaceShip" msdata:childkey="SpaceShip_ID" msprop:Generator_UserParentTable="SpaceShips" msprop:Generator_UserChildTable="PilotsOfShip" msprop:Generator_RelationVarName="relationFK__PilotsOfS__Space__5070F446" msprop:Generator_ChildPropName="GetPilotsOfShipRows" msprop:Generator_UserRelationName="FK__PilotsOfS__Space__5070F446" msprop:Generator_ParentPropName="SpaceShipsRow" />
-      <msdata:Relationship name="FK__SpaceShip__TypeS__4CA06362" msdata:parent="ShipsTypes" msdata:child="SpaceShips" msdata:parentkey="ID_TypeShip" msdata:childkey="TypeShip_ID" msprop:Generator_UserParentTable="ShipsTypes" msprop:Generator_UserChildTable="SpaceShips" msprop:Generator_RelationVarName="relationFK__SpaceShip__TypeS__4CA06362" msprop:Generator_ChildPropName="GetSpaceShipsRows" msprop:Generator_ParentPropName="ShipsTypesRow" msprop:Generator_UserRelationName="FK__SpaceShip__TypeS__4CA06362" />
+      <msdata:Relationship name="FK__PilotsOfS__Space__5070F446" msdata:parent="SpaceShips" msdata:child="PilotsOfShip" msdata:parentkey="ID_SpaceShip" msdata:childkey="SpaceShip_ID" msprop:Generator_UserParentTable="SpaceShips" msprop:Generator_UserChildTable="PilotsOfShip" msprop:Generator_RelationVarName="relationFK__PilotsOfS__Space__5070F446" msprop:Generator_ChildPropName="GetPilotsOfShipRows" msprop:Generator_ParentPropName="SpaceShipsRow" msprop:Generator_UserRelationName="FK__PilotsOfS__Space__5070F446" />
+      <msdata:Relationship name="FK__SpaceShip__TypeS__4CA06362" msdata:parent="ShipsTypes" msdata:child="SpaceShips" msdata:parentkey="ID_TypeShip" msdata:childkey="TypeShip_ID" msprop:Generator_UserParentTable="ShipsTypes" msprop:Generator_UserChildTable="SpaceShips" msprop:Generator_RelationVarName="relationFK__SpaceShip__TypeS__4CA06362" msprop:Generator_ChildPropName="GetSpaceShipsRows" msprop:Generator_UserRelationName="FK__SpaceShip__TypeS__4CA06362" msprop:Generator_ParentPropName="ShipsTypesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -54,17 +54,23 @@ namespace UP_laba2_dataset
 
         private void types_edit_Click(object sender, RoutedEventArgs e)
         {
-            object id = (gridTypes.SelectedItem as DataRowView).Row[0];
-
-            if (types_ships.Text != null)
+            try
             {
-                ships.UpdateQuery2(types_ships.Text, Convert.ToInt32(id));
-                gridTypes.ItemsSource = ships.GetData();
+                if (types_ships.Text != null)
+                {
+                    object id = (gridTypes.SelectedItem as DataRowView).Row[0];
+                    ships.UpdateQuery2(types_ships.Text, Convert.ToInt32(types_ships2.Text), Convert.ToInt32(types_ships3.Text), Convert.ToInt32(id));
+                    gridTypes.ItemsSource = ships.GetData();
+                }
+
+                else if (types_ships == null)
+                {
+                    MessageBox.Show("Вы не можете оставить поле пустым", Title = "Ошибка: пустое поле");
+                }
             }
-
-            else if (types_ships == null)
+            catch
             {
-                MessageBox.Show("Вы не можете оставить поле пустым", Title = "Ошибка: пустое поле");
+                MessageBox.Show("Ошибка при изменении");
             }
         }
 
@@ -97,9 +103,14 @@ namespace UP_laba2_dataset
 
         private void action_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            types_ships.Text = null;
+            types_ships2.Text = null;
+            types_ships3.Text = null;
+
             if (action.SelectedIndex == 2)
             {
-
+              
+         
                 types_ships2.Visibility = Visibility.Visible;
                 types_ships3.Visibility = Visibility.Visible;
                 types_del.Visibility = Visibility.Collapsed;

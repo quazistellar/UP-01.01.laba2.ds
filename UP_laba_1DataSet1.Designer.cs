@@ -2759,10 +2759,13 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeShip_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TypeShip_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE [dbo].[SpaceShips] SET [NameShip] = @NameShip WHERE ([ID_SpaceShip] = @Ori" +
-                "ginal_ID_SpaceShip) ";
+            this._commandCollection[3].CommandText = "UPDATE [dbo].[SpaceShips] SET [NameShip] = @NameShip, [AmountFlights] = @AmountFl" +
+                "ights, [TypeShip_ID] = @TypeShip_ID WHERE ([ID_SpaceShip] = @Original_ID_SpaceSh" +
+                "ip) ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameShip", global::System.Data.SqlDbType.VarChar, 70, global::System.Data.ParameterDirection.Input, 0, 0, "NameShip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AmountFlights", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AmountFlights", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeShip_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TypeShip_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_SpaceShip", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_SpaceShip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -2984,7 +2987,7 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery2(string NameShip, int Original_ID_SpaceShip) {
+        public virtual int UpdateQuery2(string NameShip, int AmountFlights, int TypeShip_ID, int Original_ID_SpaceShip) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((NameShip == null)) {
                 throw new global::System.ArgumentNullException("NameShip");
@@ -2992,7 +2995,9 @@ SELECT ID_SpaceShip, NameShip, AmountFlights, TypeShip_ID FROM SpaceShips WHERE 
             else {
                 command.Parameters[0].Value = ((string)(NameShip));
             }
-            command.Parameters[1].Value = ((int)(Original_ID_SpaceShip));
+            command.Parameters[1].Value = ((int)(AmountFlights));
+            command.Parameters[2].Value = ((int)(TypeShip_ID));
+            command.Parameters[3].Value = ((int)(Original_ID_SpaceShip));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

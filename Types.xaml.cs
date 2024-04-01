@@ -44,6 +44,7 @@ namespace UP_laba2_dataset
 
             if (action.SelectedIndex == 2)
             {
+                types_ships.Text = "";
 
                 types_del.Visibility = Visibility.Collapsed;
                 types_edit.Visibility = Visibility.Collapsed;
@@ -102,7 +103,10 @@ namespace UP_laba2_dataset
             try
             {
                 typesSh.InsertQuery(types_ships.Text);
+           
                 gridTypes.ItemsSource = typesSh.GetData();
+              
+          
             }
             catch
             {
@@ -112,24 +116,40 @@ namespace UP_laba2_dataset
 
         private void types_del_Click(object sender, RoutedEventArgs e)
         {
-            object id = (gridTypes.SelectedItem as DataRowView).Row[0];
-            typesSh.DeleteQuery(Convert.ToInt32(id));
-            gridTypes.ItemsSource = typesSh.GetData();
+            try
+            {
+                object id = (gridTypes.SelectedItem as DataRowView).Row[0];
+                typesSh.DeleteQuery(Convert.ToInt32(id));
+                gridTypes.ItemsSource = typesSh.GetData();
+            }
+
+            catch
+            {
+                MessageBox.Show("Ошибка при удалении", Title = "Ошибка");
+            }
         }
 
         private void types_edit_Click(object sender, RoutedEventArgs e)
         {
-            object id = (gridTypes.SelectedItem as DataRowView).Row[0];
-
-            if (types_ships.Text != null)
+            try
             {
-                typesSh.UpdateQuery(types_ships.Text, Convert.ToInt32(id));
-                gridTypes.ItemsSource = typesSh.GetData();
+                object id = (gridTypes.SelectedItem as DataRowView).Row[0];
+
+         
+                if (types_ships.Text != null)
+                {
+                    typesSh.UpdateQuery(types_ships.Text, Convert.ToInt32(id));
+                    gridTypes.ItemsSource = typesSh.GetData();
+                }
+
+                else if (types_ships == null)
+                {
+                    MessageBox.Show("Вы не можете оставить поле пустым", Title = "Ошибка: пустое поле");
+                }
             }
-
-            else if (types_ships ==  null)
+            catch
             {
-                MessageBox.Show("Вы не можете оставить поле пустым", Title="Ошибка: пустое поле");
+                MessageBox.Show("Ошибка при изменении", Title = "Ошибка");
             }
 
         }

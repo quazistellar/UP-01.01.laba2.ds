@@ -73,6 +73,9 @@
     <Compile Include="Types.xaml.cs">
       <DependentUpon>Types.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UP_laba_1DataSet1.cs">
+      <DependentUpon>UP_laba_1DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UP_laba_1DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

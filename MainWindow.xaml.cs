@@ -32,8 +32,6 @@ namespace UP_laba2_dataset
         {
             ShowTables show1 = new ShowTables();
             show1.ShowDialog();
-
-                
         }
 
         private void ships_show_Click(object sender, RoutedEventArgs e)
